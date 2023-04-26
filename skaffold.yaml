@@ -1,0 +1,12 @@
+# NOTE: https://skaffold.dev/docs/references/yaml/#
+# NOTE: https://stackoverflow.com/questions/74258716/in-skaffold-v2alpha3-i-am-getting-error-of-property-manifests-is-not-allowed
+apiVersion: skaffold/v4beta4
+kind: Config
+deploy:
+  kubectl: {}
+manifests:
+  rawYaml:
+    - ./config/k8s/*
+build:
+  local:
+    push: false # Don't push to docker hub

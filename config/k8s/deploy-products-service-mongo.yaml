@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: products-service-mongo-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: products-service-mongo
+  template:
+    metadata:
+      labels:
+        app: products-service-mongo
+    spec:
+      containers:
+        - name: products-service-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: products-service-mongo
+spec:
+  type: LoadBalancer
+  selector:
+    app: products-service-mongo
+  ports:
+    - name: database
+      protocol: TCP
+      port: 27017 # NOTE: https://hub.docker.com/_/mongo
+      targetPort: 27017
