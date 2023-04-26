@@ -1,6 +1,6 @@
 # Go API Demo _(go-api-demo)_
 
-This project demonstrates a basic REST API using Go
+This project demonstrates a basic REST API using Go, Fiber, MongoDB
 
 ## Install
 
